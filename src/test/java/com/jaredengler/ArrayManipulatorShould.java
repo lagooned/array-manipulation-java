@@ -16,21 +16,25 @@ public class ArrayManipulatorShould {
   }
 
   @Test
-  void mapAndMaxManipulatesArray() {
-    long[] array = new long[]{0,0,0,0,0,0,0,0};
-    arrayManipulator.map(1, 7, 1L, array, -1);
-    assertThat(array, is(new long[]{1,1,1,1,1,1,1,0}));
+  void manipulateReturnsCorrectValueCase1() {
+    int n = 5;
+    int[][] input = new int[][] {
+      new int[] {1,2,100},
+      new int[] {2,5,100},
+      new int[] {3,4,100},
+    };
+    assertThat(arrayManipulator.manipulate(n, input), is(200L));
   }
 
   @Test
-  void manipulateReturnsCorrectValue() {
+  void manipulateReturnsCorrectValueCase2() {
+    int n = 10;
     int[][] input = new int[][] {
       new int[] {1,5,3},
       new int[] {4,8,7},
       new int[] {6,9,1},
     };
-    int n = 10;
-
     assertThat(arrayManipulator.manipulate(n, input), is(10L));
   }
+
 }

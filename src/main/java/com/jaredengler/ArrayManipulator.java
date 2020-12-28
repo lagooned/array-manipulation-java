@@ -7,22 +7,27 @@ public class ArrayManipulator {
   }
 
   public long manipulate(int n, int[][] js) {
-    long[] numbers = new long[n];
+    long[] ns = new long[n+1];
 
-    long max = -1;
     for (int i = 0; i < js.length; i++) {
-      max = map(js[i][0], js[i][1], js[i][2], numbers, max);
+      int a = js[i][0];
+      int b = js[i][1];
+      int k = js[i][2];
+      ns[a-1] = ns[a-1] + k;
+      ns[b] = ns[b] - k;
     }
 
-    return max;
-  }
-
-  long map(int a, int b, long k, long[] js, long max) {
-    for (int i = a-1; i < b; i++) {
-      long val = js[i] + k;
-      if (val > max) max = val;
-      js[i] = val;
+    for (int i = 0; i < n; i++) {
+      ns[i + 1] = ns[i] + ns[i + 1];
     }
+
+    long max = 0;
+    for (int i = 0; i < n; i++) {
+      if (ns[i] > max) {
+        max = ns[i];
+      }
+    }
+
     return max;
   }
 
