@@ -6,29 +6,24 @@ public class ArrayManipulator {
     System.out.println("Hello World");
   }
 
-  public int manipulate(int n, int[][] js) {
-    int[] numbers = new int[n];
-    for (int i = 0; i < js.length; i++) numbers[i] = 0;
+  public long manipulate(int n, int[][] js) {
+    long[] numbers = new long[n];
 
-    int max = 0;
+    long max = -1;
     for (int i = 0; i < js.length; i++) {
-      max = mapAndMax(js[i][0], js[i][1], js[i][2], numbers);
+      max = map(js[i][0], js[i][1], js[i][2], numbers, max);
     }
 
     return max;
   }
 
-  int mapAndMax(int a, int b, int k, int[] js) {
-    int currentMax = 0;
-    for (int i = 0; i < js.length; i++) {
-      if (i >= a - 1 && i <= b - 1) {
-        js[i] = js[i] + k;
-      }
-      if (currentMax < js[i]) {
-        currentMax = js[i];
-      }
+  long map(int a, int b, long k, long[] js, long max) {
+    for (int i = a-1; i < b; i++) {
+      long val = js[i] + k;
+      if (val > max) max = val;
+      js[i] = val;
     }
-    return currentMax;
+    return max;
   }
 
 }
