@@ -17,12 +17,9 @@ public class ArrayManipulator {
       ns[b] = ns[b] - k;
     }
 
-    for (int i = 0; i < n; i++) {
-      ns[i + 1] = ns[i] + ns[i + 1];
-    }
-
     long max = 0;
     for (int i = 0; i < n; i++) {
+      ns[i + 1] = ns[i] + ns[i + 1];
       if (ns[i] > max) {
         max = ns[i];
       }
