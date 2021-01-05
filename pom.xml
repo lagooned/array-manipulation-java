@@ -42,7 +42,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>com.jaredengler.App</mainClass>
+              <mainClass>com.jaredengler.ArrayManipulator</mainClass>
             </manifest>
           </archive>
         </configuration>
