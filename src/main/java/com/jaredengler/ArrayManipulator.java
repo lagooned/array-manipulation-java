@@ -3,7 +3,14 @@ package com.jaredengler;
 public class ArrayManipulator {
 
   public static void main(String[] args) {
-    System.out.println("Hello World");
+    int n = 10;
+    int[][] queries = new int[][] {
+      new int[] {1,5,3},
+      new int[] {4,8,7},
+      new int[] {6,9,1},
+    };
+    long output = (new ArrayManipulator()).manipulate(n, queries);
+    System.out.println(output);
   }
 
   public long manipulate(int n, int[][] js) {
